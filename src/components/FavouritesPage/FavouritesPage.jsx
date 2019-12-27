@@ -1,9 +1,25 @@
 import React from 'react';
+import './FavouritesPage.scss';
+import PropTypes from 'prop-types';
+import { FavouriteItem } from './FavouriteItem/FavouriteItem';
 
-const FavouritesPage = () => (
-  <div>
-    <h1>Favourites Page</h1>
-  </div>
-);
+export const FavouritesPage = (props) => {
+  const { favouritesPage } = props;
+  const listFavourites = favouritesPage.favorites.map((item) => (
+    <FavouriteItem key={item.id} item={item} />
+  ));
+  return (
+    <div className="wrapper-favourites-page">
+      <h1 className="favourites-page__title" id="title">
+        Favourites
+      </h1>
+      <ul className="favourites-page__list-items">
+        {listFavourites}
+      </ul>
+    </div>
+  );
+};
 
-export default FavouritesPage;
+FavouritesPage.propTypes = {
+  favouritesPage: PropTypes.object.isRequired,
+};

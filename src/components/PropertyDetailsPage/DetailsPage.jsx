@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { BasicInfo } from './BasicInfo/BasicInfo';
 import { AdditionalInfo } from './AdditionalInfo/AdditionalInfo';
 
-const DetailsPage = ({ detailsPage }) => {
+const DetailsPage = ({
+  detailsPage, favouritesPage, addPropertyToFavourites,
+  removePropertyToFavourites,
+}) => {
   const { property, location, loading } = detailsPage;
   return (
     <>
@@ -12,7 +15,13 @@ const DetailsPage = ({ detailsPage }) => {
           <div>Loading...</div>
         ) : (
           <>
-            <BasicInfo property={property} location={location} />
+            <BasicInfo
+              property={property}
+              location={location}
+              favouritesPage={favouritesPage}
+              addPropertyToFavourites={addPropertyToFavourites}
+              removePropertyToFavourites={removePropertyToFavourites}
+            />
             <AdditionalInfo property={property} />
           </>
         )
@@ -23,6 +32,9 @@ const DetailsPage = ({ detailsPage }) => {
 
 DetailsPage.propTypes = {
   detailsPage: PropTypes.object.isRequired,
+  favouritesPage: PropTypes.object.isRequired,
+  addPropertyToFavourites: PropTypes.func.isRequired,
+  removePropertyToFavourites: PropTypes.func.isRequired,
 };
 
 export default DetailsPage;

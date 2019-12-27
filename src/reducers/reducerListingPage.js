@@ -1,4 +1,7 @@
-import { GET_PROPERTIES } from '../actions/actionsTypes/actionsTypes';
+import {
+  GET_PROPERTIES,
+  RESET_PROPERTIES,
+} from '../actions/actionsTypes/actionsTypes';
 
 const initialState = {
   placeName: '',
@@ -28,6 +31,14 @@ const listingPage = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    case RESET_PROPERTIES:
+      return {
+        ...state,
+        list: [],
+        page: 0,
+        totalResults: 0,
+        error: null,
       };
     default:
       return state;

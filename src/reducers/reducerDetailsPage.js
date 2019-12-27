@@ -1,4 +1,6 @@
-import { GET_PROPERTY_BY_ID } from '../actions/actionsTypes/actionsTypes';
+import {
+  GET_PROPERTY_BY_ID,
+} from '../actions/actionsTypes/actionsTypes';
 
 const initialState = {
   property: {},

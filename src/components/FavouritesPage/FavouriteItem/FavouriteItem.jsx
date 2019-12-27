@@ -1,21 +1,21 @@
 import React from 'react';
+import './FavouriteItem.scss';
 import PropTypes from 'prop-types';
-import './Item.scss';
 import { Link } from 'react-router-dom';
 
-export const Item = ({ item }) => (
-  <li className="wrapper-item">
+export const FavouriteItem = ({ item }) => (
+  <li className="wrapper-favourites-item">
     <Link to={`/${item.location.placeName}/details/${item.id}`}>
       <div className="wrapper-img">
         <img src={item.imgUrl} alt="property" className="wrapper-img__img-house" />
       </div>
-      <div className="item__title">
+      <div className="favourites-item__title">
         <p>{item.title}</p>
       </div>
-      <div className="item__price">
+      <div className="favourites-item__price">
         {item.priceFormatted}
       </div>
-      <div className="item__updating">
+      <div className="favourites-item__updating">
         Update:
         &nbsp;
         {item.updatedInDaysFormatted}
@@ -24,6 +24,6 @@ export const Item = ({ item }) => (
   </li>
 );
 
-Item.propTypes = {
+FavouriteItem.propTypes = {
   item: PropTypes.object.isRequired,
 };

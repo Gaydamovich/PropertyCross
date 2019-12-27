@@ -1,0 +1,12 @@
+.favourites-page__title {
+  text-align: center;
+}
+
+.favourites-page__list-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: .7rem;
+}
